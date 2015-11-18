@@ -32,7 +32,12 @@
                          alpha == kCGImageAlphaPremultipliedLast);
     
         if (anyAlpha) { return image; }
-    
+        if (CGImageGetColorSpace(imageRef) == kCGColorSpaceModelCMYK){
+            NSLog(@"%s : image CMYK", __FUNCTION__);
+            CGColorSpaceRelease(colorSpace);
+            return image;
+        }
+
         size_t width = CGImageGetWidth(imageRef);
         size_t height = CGImageGetHeight(imageRef);
     
