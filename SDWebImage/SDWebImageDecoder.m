@@ -34,7 +34,6 @@
         if (anyAlpha) { return image; }
         if (CGImageGetColorSpace(imageRef) == kCGColorSpaceModelCMYK){
             NSLog(@"%s : image CMYK", __FUNCTION__);
-            CGColorSpaceRelease(colorSpace);
             return image;
         }
 
